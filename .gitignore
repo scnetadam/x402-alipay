@@ -31,3 +31,7 @@ Thumbs.db
 
 server.log
 server.err
+
+server.log
+server.err
+__pycache__/
