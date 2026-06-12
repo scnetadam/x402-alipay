@@ -1,0 +1,30 @@
+# x402-alipay .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# 环境配置（含密钥）
+.env
+!env.example
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+
+# 支付宝私钥（单独文件）
+*.pem
+*.key
