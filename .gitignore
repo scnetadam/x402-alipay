@@ -24,14 +24,9 @@ Thumbs.db
 
 # 日志
 *.log
+server.log
+server.err
 
 # 支付宝私钥（单独文件）
 *.pem
 *.key
-
-server.log
-server.err
-
-server.log
-server.err
-__pycache__/

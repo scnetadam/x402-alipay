@@ -29,8 +29,17 @@ SERVER_ALIPAY_ACCOUNT = os.getenv("SERVER_ALIPAY_ACCOUNT", "")
 
 # ---------- pick backend ----------
 ALIPAY_APP_ID = os.getenv("ALIPAY_APP_ID", "")
-ALIPAY_APP_PRIVATE_KEY = os.getenv("ALIPAY_APP_PRIVATE_KEY", "")
-ALIPAY_PUBLIC_KEY = os.getenv("ALIPAY_PUBLIC_KEY", "")
+def _load_pem_key(val):
+    """从环境变量加载 PEM 密钥（处理 \n 字面转义）"""
+    if not val:
+        return val
+    val = val.replace("\\n", "\n")
+    if "-----BEGIN" not in val:
+        val = f"-----BEGIN RSA PRIVATE KEY-----\n{val}\n-----END RSA PRIVATE KEY-----"
+    return val
+
+ALIPAY_APP_PRIVATE_KEY = _load_pem_key(os.getenv("ALIPAY_APP_PRIVATE_KEY", ""))
+ALIPAY_PUBLIC_KEY = _load_pem_key(os.getenv("ALIPAY_PUBLIC_KEY", ""))
 
 if ALIPAY_APP_ID and ALIPAY_APP_PRIVATE_KEY and ALIPAY_PUBLIC_KEY:
     # real alipay sandbox mode
