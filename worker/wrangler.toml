@@ -1,0 +1,21 @@
+name = "x402-alipay"
+main = "src/worker.js"
+compatibility_date = "2025-03-01"
+
+[[kv_namespaces]]
+binding = "X402_ORDERS"
+id = ""
+preview_id = ""
+
+[env.production]
+kv_namespaces = [
+  { binding = "X402_ORDERS", id = "" }
+]
+
+[triggers]
+crons = []
+
+# Secrets (set via wrangler secret put or dashboard):
+# ALIPAY_APP_ID
+# ALIPAY_APP_PRIVATE_KEY
+# ALIPAY_PUBLIC_KEY
