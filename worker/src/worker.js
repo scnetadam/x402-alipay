@@ -106,7 +106,7 @@ function genTradeNo() {
 }
 
 const GATEWAY = 'https://openapi-sandbox.dl.alipaydev.com/gateway.do';
-const SITE = 'https://chinaauto.ccwu.cc';
+const SITE = 'https://ai-worker-proxy.13616007538.workers.dev';
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data, null, 2), {
